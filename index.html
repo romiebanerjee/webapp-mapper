@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<style type="text/css">
+#panel {
+  position: fixed; /* or absolute */
+ 
+  border-style: solid;
+  border-color: grey;
+  padding: 10px
+}
+</style>
+
+<h1> TDA Mapper Visualizer </h1>
+
+<div id = "panel">
+<form action="/enterparams" method="post">
+	<div>
+		<h3> Choose Dataset </h3>
+		<select name="Dataset">
+        <option disabled selected value="">Dataset</option>
+        <option value="IRIS">IRIS</option>
+        <option value="MNIST">MNIST</option>
+        <option value="BLOBS">3 BLOBS</option>
+        <option value="BREAST_CANCER"> BREAST CANCER</option>
+        <option value= "OTHER"> OTHER </option>
+       	</select>
+       	    <input type="submit" value="Scatter Plot"/>
+
+	</div>
+
+
+
+	<div>
+	<h3>Mapper settings</h3>
+
+	<select name="Lens">
+        <option disabled selected value="">Lens</option>
+        <option value="PCA">PCA</option>
+        <option value="eccentricity">Eccentricity</option>
+        <option value="Gauss_density">Gauss density</option>
+        
+       
+    </select>
+
+    <input name="rcover" placeholder="range cover" type="text"/>
+    
+    <input name = "overlap" placeholder="overlap" type = "text"/>
+    
+    
+
+
+</div>
+
+<div>
+	<h3> Clusterer settings </h3>
+
+    <input name="eps" placeholder="eps" type="text"/>
+    
+    <input name = "min_samples" placeholder="min_samples" type = "text"/>
+ </div>
+
+ <div>
+ 	<h3> Force Layout Settings </h3>
+ 	<input name="strength" placeholder="strength" type="text"/>
+ </div>
+  
+<div>
+	<h3> Run </h3>
+    <input type="submit" value="Run Mapper"/>
+</div>
+</form>
+</div>
+
+{% endblock %}
